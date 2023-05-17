@@ -1,0 +1,19 @@
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  width: 80%;
+  margin: 2px auto 0 auto;
+  align-items: center;
+}
+
+.nav__link {
+  display: none;
+  color: #111;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.nav__link:not(:last-child) {
+  margin-right: 25px;
+}
