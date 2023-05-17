@@ -1,5 +1,6 @@
 import "./Hero-Background.css";
-const HeroBackground = () => {
-  return <div className="hero__section"></div>;
+
+const HeroBackground = (props) => {
+  return <div className="hero__section">{props.children}</div>;
 };
 export default HeroBackground;

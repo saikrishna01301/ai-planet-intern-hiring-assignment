@@ -1,9 +1,9 @@
-import HeroBackground from "../Hero-Background/Hero-Background";
+import HeroHome from "../Hero-Home/Hero-Home";
 
 const Home = () => {
   return (
     <>
-      <HeroBackground />
+      <HeroHome />
     </>
   );
 };

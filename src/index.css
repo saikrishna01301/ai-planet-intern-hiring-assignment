@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 body {
+  /* width: 1440px; */
   background: #f8f9fd;
   position: relative;
+  font-family: "Poppins", sans-serif;
 }
