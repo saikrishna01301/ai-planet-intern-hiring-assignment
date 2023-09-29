@@ -1,6 +1,6 @@
 .hero-home__container {
   display: inline-block;
-
+  width: 90%;
   margin: 88px 0 0 10%;
   color: #ffffff;
 }
@@ -22,10 +22,10 @@
 }
 
 .hero-home__button {
+  position: absolute;
   width: 194px;
   height: 52px;
   color: #ffffff;
-  font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 175%;
@@ -36,6 +36,8 @@
   border-radius: 10px;
   border: none;
   margin-top: 34px;
+  cursor: pointer;
+  z-index: 15;
 }
 
 .hero-home__img {
@@ -47,4 +49,16 @@
   background: url(../../Assets/hero-home-img.png);
   background-size: cover;
   background-position: center;
+  z-index: 10;
+}
+
+.hero-home__waves {
+  position: absolute;
+  width: 100%;
+  height: 433px;
+  left: calc(50% - 1440px / 2);
+  top: 133px;
+  background: url(../../Assets/waves.png);
+  background-repeat: no-repeat;
+  overflow: hidden;
 }

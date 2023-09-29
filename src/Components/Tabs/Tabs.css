@@ -1,0 +1,19 @@
+.tabs {
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+.tab {
+  padding: 7px 24px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #333333;
+  cursor: pointer;
+  border-bottom: none;
+  line-height: 25.5px;
+  text-align: center;
+}
+.active {
+  border-bottom: 4px solid #44924c;
+  box-sizing: border-box;
+}

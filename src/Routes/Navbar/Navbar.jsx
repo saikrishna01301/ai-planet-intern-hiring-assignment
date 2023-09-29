@@ -10,7 +10,7 @@ const Navbar = () => {
             <img src={require("../../Assets/Logo.png")} alt="logo" />
           </Link>
         </div>
-        <div className="nav__middle">
+        {/* <div className="nav__middle">
           <Link className="nav__link">link 1</Link>
           <Link className="nav__link">link 2</Link>
           <Link className="nav__link">link 3</Link>
@@ -24,7 +24,7 @@ const Navbar = () => {
           <Link className="nav__link" to="/signup">
             Sign up
           </Link>
-        </div>
+        </div> */}
       </div>
       <Outlet />
     </>

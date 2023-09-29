@@ -1,0 +1,6 @@
+.card__section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 46px;
+}
