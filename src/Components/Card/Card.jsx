@@ -1,8 +1,14 @@
 import "./Card.css";
+import { useNavigate } from "react-router-dom";
 
 const Card = (props) => {
   const { id, title, summary, image } = props.item;
-  // const imageUrl = `data:image/png;base64,${image}`;
+  const navigate = useNavigate();
+
+  //--------data related onClick handler-------------------
+  const dataRelatedToSubmission = () => {
+    navigate("/data-related-to-submission", { state: { item: props.item } });
+  };
 
   //--------calculating when the hackathon uploaded-----------
   const daysAgo = () => {
@@ -28,7 +34,7 @@ const Card = (props) => {
       : `uploaded ${daysAgo} days ago`;
   };
   return (
-    <div className="card__container" key={id}>
+    <div className="card__container" key={id} onClick={dataRelatedToSubmission}>
       <div className="card__top">
         <img src={image} alt="lorem ipsum" className="card__img" />
         <h5 className="card__heading">{title}</h5>

@@ -9,6 +9,7 @@
   box-shadow: 0px 3px 24px rgba(132, 132, 132, 0.16),
     inset 0px -3px 6px rgba(0, 0, 0, 0.06);
   border-radius: 16px;
+  cursor: pointer;
 }
 /* .card__container:not(:last-child) {
   margin-right: 32px;
@@ -21,6 +22,7 @@
   width: 100px;
   height: 100px;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .card__heading {
@@ -50,7 +52,7 @@
 }
 
 .card__bottom {
-  width: 147px;
+  width: 167px;
   height: 17px;
 
   font-family: "Inter";
@@ -59,7 +61,7 @@
   font-size: 14px;
   line-height: 17px;
 
-  margin-left: 165px;
+  margin-left: 155px;
 
   color: #666666;
   flex: none;
