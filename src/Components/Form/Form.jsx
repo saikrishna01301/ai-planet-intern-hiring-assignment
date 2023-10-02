@@ -1,6 +1,7 @@
 import "./Form.css";
 import UploadImg from "../../Assets/add-image.png";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const formDefaultValues = {
   title: "",
@@ -15,6 +16,10 @@ const formDefaultValues = {
 };
 
 const Form = () => {
+  //-----------edit form-----------------
+  const location = useLocation();
+
+  /////////////////////////////////////////////////////////////
   const [formValues, setFormValues] = useState(formDefaultValues);
   //Retrieve existing data from local storage (if any) otherwise it's an empty array.
 
