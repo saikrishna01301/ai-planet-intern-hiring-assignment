@@ -80,6 +80,7 @@ const DataRelated = () => {
     onDeleteHandler();
     setActive(2);
   };
+  
 
   ////////////////////////////////////////////////////////////////
   return (
