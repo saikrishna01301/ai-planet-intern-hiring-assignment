@@ -1,9 +1,9 @@
 import "./Form.css";
 import UploadImg from "../../Assets/add-image.png";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const formDefaultValues = {
+let formDefaultValues = {
   title: "",
   summary: "",
   description: "",
@@ -17,10 +17,14 @@ const formDefaultValues = {
 
 const Form = () => {
   //-----------edit form-----------------
+  const navigate = useNavigate();
   const location = useLocation();
+  const editItem = location.state?.editItem;
 
+  // const formValuesCheck = editItem ? editItem : formDefaultValues;
   /////////////////////////////////////////////////////////////
-  const [formValues, setFormValues] = useState(formDefaultValues);
+
+  const [formValues, setFormValues] = useState(editItem || formDefaultValues);
   //Retrieve existing data from local storage (if any) otherwise it's an empty array.
 
   const existingHackathon =
@@ -48,6 +52,7 @@ const Form = () => {
     otherLinks,
   } = formValues;
 
+  console.log(title);
   //------onChange Handler------------------------------
 
   const formOnchangeHandle = (e) => {
@@ -59,7 +64,6 @@ const Form = () => {
       const file = files[0];
 
       reader.onloadend = () => {
-        console.log("FileReader onloadend event fired");
         setFormValues({ ...formValues, [name]: reader.result });
       };
 
@@ -89,8 +93,11 @@ const Form = () => {
     const updatedData = [...existingHackathonArray, newEntry];
 
     localStorage.setItem("hackathons", JSON.stringify(updatedData));
-    console.log("form submitted perfectly");
+    navigate("/");
   };
+
+  ////////////////////////////////////////////////////////////////
+
   return (
     <div className="form__route">
       <form
@@ -106,7 +113,7 @@ const Form = () => {
           type="text"
           name="title"
           placeholder="Title of your submission"
-          value={title}
+          defaultValue={title}
           onChange={formOnchangeHandle}
           required
         />
@@ -115,7 +122,7 @@ const Form = () => {
         <input
           type="text"
           name="summary"
-          value={summary}
+          defaultValue={summary}
           onChange={formOnchangeHandle}
           placeholder="A short summary of your submission (this will be visible with your submission)"
           required
@@ -125,7 +132,7 @@ const Form = () => {
         <textarea
           className="input__description"
           name="description"
-          value={description}
+          defaultValue={description}
           onChange={formOnchangeHandle}
           placeholder="Write a long description of your project. You can describe your idea and approach here."
           required
@@ -152,7 +159,7 @@ const Form = () => {
         <input
           type="text"
           name="hackathonName"
-          value={hackathonName}
+          defaultValue={hackathonName}
           onChange={formOnchangeHandle}
           placeholder="Enter the name of the hackathon"
           required
@@ -168,7 +175,7 @@ const Form = () => {
               type="date"
               id="dateInput"
               name="startDate"
-              value={startDate}
+              defaultValue={startDate}
               placeholder="Select a Date"
               onChange={formOnchangeHandle}
               required
@@ -183,7 +190,7 @@ const Form = () => {
               type="date"
               id="dateInput"
               name="endDate"
-              value={endDate}
+              defaultValue={endDate}
               placeholder="Select a Date"
               onChange={formOnchangeHandle}
               required
@@ -195,7 +202,7 @@ const Form = () => {
         <input
           type="text"
           name="githubLink"
-          value={githubLink}
+          defaultValue={githubLink}
           onChange={formOnchangeHandle}
           placeholder="Enter your submission’s public GitHub repository link"
           required
@@ -205,7 +212,7 @@ const Form = () => {
         <input
           type="text"
           name="otherLinks"
-          value={otherLinks}
+          defaultValue={otherLinks}
           onChange={formOnchangeHandle}
           placeholder="You can upload a video demo or URL of you demo app here."
           required

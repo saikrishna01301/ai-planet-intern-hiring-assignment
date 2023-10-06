@@ -1,5 +1,8 @@
 import "./DataRelated.css";
+import "./DeleteDialog.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { TabContext } from "../../Contexts/tabContext";
 
 import HeroBackground from "../Hero-Background/Hero-Background";
 
@@ -9,6 +12,12 @@ const DataRelated = () => {
   const navigate = useNavigate();
   const dateObject = new Date(item.id);
   const uploadedDate = dateObject.getDate();
+
+  const { active, setActive } = useContext(TabContext);
+
+  const [deleteDialog, setDeleteDialog] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
   const monthNames = [
     "Jan",
     "Feb",
@@ -25,10 +34,12 @@ const DataRelated = () => {
   ];
   const uploadedMonth = monthNames[dateObject.getMonth()];
 
+  //edit hackathon which navigate to form page-------------------
   const editHackathon = () => {
-    navigate("/form", { state: { EditItem: item } });
+    navigate("/form", { state: { editItem: item } });
   };
-  //hackathon start date and end date logic
+
+  //hackathon start date and end date logic----------------------
   const getDateInfo = (d) => {
     const date = new Date(d);
     const day = date.getDate();
@@ -38,6 +49,39 @@ const DataRelated = () => {
     return `${day} ${month} ${year}`;
   };
 
+  //onDialogToggleHandler event-------------------------------------
+  const onDialogToggleHandler = () => {
+    // deleteDialog ? setDeleteDialog(false) : setDeleteDialog(true);
+    setDeleteDialog(!deleteDialog);
+  };
+
+  const onDeleteHandler = () => {
+    const key = active === 1 ? "hackathons" : "favorite";
+    const retrieveHackathon = JSON.parse(localStorage.getItem(key));
+    const updatedArray = retrieveHackathon.filter(
+      (items) => items.id !== item.id
+    );
+    localStorage.setItem(key, JSON.stringify(updatedArray));
+    navigate("/");
+  };
+
+  // onAddFavoriteHandler-------------------------------------------
+  const onAddFavoriteHandler = () => {
+    // setFavoriteHackathon(item);
+    const existingFavoriteHackathon =
+      JSON.parse(localStorage.getItem("favorite")) || [];
+
+    // const existingFavoriteHackathonArray = Array.isArray(favoriteHackathon)
+    //   ? favoriteHackathon
+    //   : [];
+    const updatedFavoriteArray = [...existingFavoriteHackathon, item];
+
+    localStorage.setItem("favorite", JSON.stringify(updatedFavoriteArray));
+    onDeleteHandler();
+    setActive(2);
+  };
+
+  ////////////////////////////////////////////////////////////////
   return (
     <>
       <HeroBackground>
@@ -53,12 +97,16 @@ const DataRelated = () => {
               <button className="btn-modify" onClick={editHackathon}>
                 Edit
               </button>
-              <button className="btn-modify">Delete</button>
+              <button className="btn-modify" onClick={onDialogToggleHandler}>
+                Delete
+              </button>
             </div>
           </div>
           <p className="data-related__content">{item.summary}</p>
           <div className="data-related__properties">
-            <p className="fav__icon--container">S</p>
+            <p className="fav__icon--container" onClick={onAddFavoriteHandler}>
+              S
+            </p>
             <p className="date-of__upload">
               {`${uploadedDate} ${uploadedMonth}`}
             </p>
@@ -82,15 +130,41 @@ const DataRelated = () => {
             </div>
           </div>
           <div className="btn-container">
-            <button className="btn-link">
-              <a href={item.githubLink}>GitHub Repository</a>
-            </button>
-            <button className="btn-link">
-              <a href={item.otherLinks}>Other Link</a>
-            </button>
+            <a className="External__link" href={item.githubLink}>
+              <button className="btn-link">GitHub Repository</button>
+            </a>
+            <a className="External__link" href={item.otherLinks}>
+              <button className="btn-link">Other Links</button>
+            </a>
           </div>
         </div>
       </div>
+      {deleteDialog ? (
+        <div>
+          <div className="dialog__container">
+            <h2 className="dialog__head">Delete model</h2>
+            <p className="dialog__content">
+              This action is irreversible. Are you sure you want to delete this
+              model?
+            </p>
+            <div className="dialog__buttons">
+              <button
+                className="dialog__btn cancel__btn"
+                onClick={onDialogToggleHandler}
+              >
+                Cancel
+              </button>
+              <button
+                className="dialog__btn delete__btn"
+                onClick={onDeleteHandler}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+          <div className="overlay" onClick={onDialogToggleHandler}></div>
+        </div>
+      ) : null}
     </>
   );
 };

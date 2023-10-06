@@ -19,7 +19,7 @@
   width: 120px;
   height: 120px;
   border-radius: 10px;
-  background-size: cover;
+  object-fit: cover;
 }
 .data-related__heading--title {
   width: 836px;
@@ -46,15 +46,32 @@
   padding: 6px 18px;
   border-radius: 10px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .data-related__details {
   width: 80%;
   margin: 0 auto;
-
   display: flex;
   margin-top: 52px;
   gap: 139px;
+}
+
+.fav__icon--container {
+  padding-right: 24px;
+  border-right: 1px solid #f5f5f5;
+  cursor: pointer;
+}
+
+.date-of__upload {
+  width: 105px;
+  height: 29px;
+  padding: 6px 12px;
+  line-height: 16.94px;
+  background-color: #255973;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 100px;
 }
 .data-related__description {
 }
@@ -69,7 +86,7 @@
 .description--details {
   margin-top: 14px;
   width: 736px;
-  height: 380px;
+  height: auto;
 }
 
 .hackathon__info {
@@ -119,16 +136,18 @@
   gap: 16px;
   margin-top: 40px;
 }
+.External__link {
+  text-decoration: none;
+}
 .btn-link {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
   height: 40px;
   padding: 6px 18px;
+  color: #666666;
   border: 1px solid #666666;
   border-radius: 10px;
   background-color: transparent;
-}
-.btn-link a {
-  text-decoration: none;
-  color: #666666;
-  font-size: 16px;
-  font-weight: 500;
+  cursor: pointer;
 }

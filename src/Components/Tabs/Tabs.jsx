@@ -1,8 +1,10 @@
 import "./Tabs.css";
-import { useState } from "react";
+import { useContext } from "react";
+import { TabContext } from "../../Contexts/tabContext";
 
 const Tabs = () => {
-  const [active, setActive] = useState(1);
+  // const [active, setActive] = useState(1);
+  const { active, setActive } = useContext(TabContext);
 
   const handleActiveTab = (activeNumber) => {
     setActive(activeNumber);
