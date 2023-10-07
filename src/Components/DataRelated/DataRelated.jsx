@@ -3,6 +3,11 @@ import "./DeleteDialog.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { TabContext } from "../../Contexts/tabContext";
+import { ReactComponent as FavoriteIco } from "../../Assets/icons/star.svg";
+import { ReactComponent as Edit } from "../../Assets/icons/edit.svg";
+import { ReactComponent as Delete } from "../../Assets/icons/delete.svg";
+import { ReactComponent as Github } from "../../Assets/icons/github.svg";
+import { ReactComponent as OpenNew } from "../../Assets/icons/open-in-new.svg";
 
 import HeroBackground from "../Hero-Background/Hero-Background";
 
@@ -80,7 +85,6 @@ const DataRelated = () => {
     onDeleteHandler();
     setActive(2);
   };
-  
 
   ////////////////////////////////////////////////////////////////
   return (
@@ -96,18 +100,22 @@ const DataRelated = () => {
             <h1 className="data-related__heading--title">{item.title}</h1>
             <div className="data-related__heading--btns">
               <button className="btn-modify" onClick={editHackathon}>
+                <Edit className="edit" />
                 Edit
               </button>
               <button className="btn-modify" onClick={onDialogToggleHandler}>
+                <Delete className="delete" />
                 Delete
               </button>
             </div>
           </div>
           <p className="data-related__content">{item.summary}</p>
           <div className="data-related__properties">
-            <p className="fav__icon--container" onClick={onAddFavoriteHandler}>
-              S
-            </p>
+            <FavoriteIco
+              className="fav__icon--container"
+              onClick={onAddFavoriteHandler}
+            ></FavoriteIco>
+            <span className="line"></span>
             <p className="date-of__upload">
               {`${uploadedDate} ${uploadedMonth}`}
             </p>
@@ -132,10 +140,16 @@ const DataRelated = () => {
           </div>
           <div className="btn-container">
             <a className="External__link" href={item.githubLink}>
-              <button className="btn-link">GitHub Repository</button>
+              <button className="btn-link">
+                <Github className="git-logo" />
+                GitHub Repository
+              </button>
             </a>
             <a className="External__link" href={item.otherLinks}>
-              <button className="btn-link">Other Links</button>
+              <button className="btn-link">
+                <OpenNew className="open-new" />
+                Other Links
+              </button>
             </a>
           </div>
         </div>

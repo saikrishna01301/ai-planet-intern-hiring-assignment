@@ -38,15 +38,20 @@
   font-size: 17px;
 }
 .btn-modify {
-  width: 100%;
+  width: 120px;
   height: 40px;
   color: #ffffff;
   font-size: 16px;
+  font-style: Poppins;
   border: 1px solid #ffffff;
   padding: 6px 18px;
   border-radius: 10px;
   background-color: transparent;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .data-related__details {
@@ -58,9 +63,11 @@
 }
 
 .fav__icon--container {
-  padding-right: 24px;
-  border-right: 1px solid #f5f5f5;
   cursor: pointer;
+  stroke: #ffffff;
+}
+.line {
+  border-right: 1px solid #f5f5f5;
 }
 
 .date-of__upload {
@@ -140,6 +147,9 @@
   text-decoration: none;
 }
 .btn-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   font-size: 16px;
   font-weight: 500;
@@ -150,4 +160,18 @@
   border-radius: 10px;
   background-color: transparent;
   cursor: pointer;
+}
+/* logos */
+.git-logo,
+.open-new {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  fill: #666666;
+}
+.edit,
+.delete {
+  width: 24px;
+  height: 24px; 
+   fill: #ffffff;
 }

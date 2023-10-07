@@ -21,10 +21,12 @@ const Form = () => {
   const location = useLocation();
   const editItem = location.state?.editItem;
 
-  // const formValuesCheck = editItem ? editItem : formDefaultValues;
+  formDefaultValues = editItem
+    ? { ...formDefaultValues, ...editItem }
+    : formDefaultValues;
   /////////////////////////////////////////////////////////////
 
-  const [formValues, setFormValues] = useState(editItem || formDefaultValues);
+  const [formValues, setFormValues] = useState(formDefaultValues);
   //Retrieve existing data from local storage (if any) otherwise it's an empty array.
 
   const existingHackathon =
