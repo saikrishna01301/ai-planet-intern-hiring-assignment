@@ -121,7 +121,6 @@
 .form__img--upload {
   display: flex;
   align-items: center;
-  justify-content: center;
   margin-top: 8px;
   width: 706px;
   height: 82px;
@@ -129,6 +128,9 @@
   border: 2px dashed #cccccc;
   border-radius: 16px;
   cursor: pointer;
+}
+.upload {
+  justify-content: center;
 }
 
 #imageUpload {
@@ -184,4 +186,31 @@
   order: 1;
   align-self: stretch;
   flex-grow: 0;
+}
+.uploaded {
+  padding: 8px, 16px;
+  gap: 16px;
+}
+.form__uploaded--img {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  margin-left: 16px;
+}
+.file-name {
+  width: 462px;
+  font-size: 16px;
+  color: #333333;
+}
+.re-upload__container {
+  padding: 6px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #858585;
+}
+.re-upload {
+  width: 24px;
+  height: 24px;
+  fill: #858585;
 }

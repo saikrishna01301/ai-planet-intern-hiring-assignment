@@ -2,7 +2,7 @@ import "./Form.css";
 import UploadImg from "../../Assets/add-image.png";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { ReactComponent as Upload } from "../../Assets/icons/upload.svg";
 let formDefaultValues = {
   title: "",
   summary: "",
@@ -28,6 +28,9 @@ const Form = () => {
 
   const [formValues, setFormValues] = useState(formDefaultValues);
   //Retrieve existing data from local storage (if any) otherwise it's an empty array.
+
+  const [showImage, setShowImage] = useState();
+  const [fileName, setFileName] = useState();
 
   const existingHackathon =
     JSON.parse(localStorage.getItem("hackathons")) || [];
@@ -62,11 +65,14 @@ const Form = () => {
     const { name, value, files } = e.target;
 
     if (name === "image" && files.length > 0) {
+      setFileName(value.split("\\").pop());
       const reader = new FileReader();
       const file = files[0];
 
       reader.onloadend = () => {
         setFormValues({ ...formValues, [name]: reader.result });
+        setShowImage(reader.result);
+        console.log(reader.result);
       };
 
       reader.readAsDataURL(file);
@@ -144,18 +150,32 @@ const Form = () => {
 
         <label className="form__label">Cover Image</label>
         <p className="input__img--size">Minimum resolution: 360px X 360px</p>
-        <label className="form__img--upload" htmlFor="imageUpload">
-          <input
-            type="file"
-            accept="image/*"
-            id="imageUpload"
-            name="image"
-            defaultValue={image}
-            onChange={formOnchangeHandle}
-            required
-          />
-          <img src={UploadImg} alt="Upload-i" className="form__img" />
-        </label>
+        {showImage ? (
+          <label className="form__img--upload uploaded" htmlFor="imageUpload">
+            <img
+              src={showImage}
+              alt="Upload-i"
+              className="form__uploaded--img"
+            />
+            <p className="file-name">{fileName}</p>
+            <p className="re-upload__container">
+              Reupload <Upload className="re-upload" />
+            </p>
+          </label>
+        ) : (
+          <label className="form__img--upload upload" htmlFor="imageUpload">
+            <input
+              type="file"
+              accept="image/*"
+              id="imageUpload"
+              name="image"
+              defaultValue={image}
+              onChange={formOnchangeHandle}
+              required
+            />
+            <img src={UploadImg} alt="Upload-i" className="form__img" />
+          </label>
+        )}
 
         <label className="form__label">Hackathon Name</label>
         <input
