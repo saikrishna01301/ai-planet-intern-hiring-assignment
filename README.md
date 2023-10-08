@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+Assignment for a front-end development internship 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Objective - 
+Create a submissions app where one can submit their hackathon submissions & see the list. 
 
-## Available Scripts
+Context: Imagine you are working for an Edtech company and you are asked to create a simple application that will allow to submit a hackathon submissions. The hackathon consists of a problem statement which can be accessed by participants to solve and make a submission. Here let’s imagine hackthons feature is already built & you are asked to build the submissions feature where learners can submit their hackthon solutions. 
 
-In the project directory, you can run:
+Application overview - 
+Learners should be able to create, edit, and delete their submission.
+oEvery submission form should have following fields:
+-Title
+-Summary
+-Description
+-Cover Image
+-Hackthon name
+-Hackthon start date
+-Hackthon end date
+-Github repository link
+-Other links(optional)
+-Learners should be able to see the list of submissions.
+oWhere learner can search the submission using title
+oLearners should be able to sort the submissions based on hackathon start date(oldest, newest)
+oThere should be 2 tabs.
+-All submissions
+-Favourite submissions 
+oWhen clicked on submission it should take them to page where learner can see all the data related to submission.
+oOn this page, learner should be able to edit, delete the submission & by clicking on the start icon they can make that submission as their favorite.
+oAnd all the favourite submissions should be visible in favourite tab.
+-You don’t need to build backend for this. You can use the local storage as db where you can store the submissions data.
 
-### `npm start`
+Detailed mockups are given here: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Design Link:- 
+https://www.figma.com/file/g54nwEVAl7gk74U4uEjYmD/AI-Planet-Intern-Hiring-Assignment?node-id=0%3A1&t=gWgTJX6HEAF6JgK1-1
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Prototype Link:-
+(You can see how the app should work here)
+https://www.figma.com/proto/g54nwEVAl7gk74U4uEjYmD/AI-Planet-Intern-Hiring-Assignment?node-id=7%3A688&scaling=min-zoom&page-id=7%3A301&starting-point-node-id=7%3A688
 
-### `npm test`
+Assets(Images & icons):
+https://drive.google.com/drive/folders/1dSNVRO5BBHmbkNQwFCiJ-FW3pN5tYjC4?usp=sharing
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+What technologies/frameworks/libraries to use?
+-Use ReactJS to build the app
+-Create multiple components instead of a single component
+-You can use library like material ui or react-bootstrap.
+-Using typescript is plus but not mandatory
+-You can find the all images & icons here.
 
-### `npm run build`
+What is the assignment evaluation process?
+Submitted assignment evaluated based on the -
+-Using right technology
+-Covering all the use cases and developing all the features mentioned
+-Efficiency 
+-Modularity
+-Naming conventions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
